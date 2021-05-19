@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.AbstractMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.ncu.dao.entity.Abstract"></resultMap>
+  <resultMap id="AbstractInfoMap" type="cn.edu.ncu.dao.entity.AbstractInfo">
+    <association property="anAbstract" javaType="cn.edu.ncu.dao.entity.Abstract">
+      <id column="id" property="id" />
+      <result column="title" property="title" />
+      <result column="abstract_content" property="abstractContent" />
+      <result column="file_id" property="fileId" />
+    </association>
+    <association property="file" javaType="cn.edu.ncu.dao.entity.File">
+      <result column="file_name" property="fileName" />
+      <result column="file_path" property="filePath" />
+      <result column="create_time" property="createTime" />
+    </association>
+  </resultMap>
+  <sql id="queryByPageWhere">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="queryDTO.title != null and queryDTO.title != ''">
+        AND a.title like    CONCAT('%',#{queryDTO.title},'%')
+      </if>
+      <if test="queryDTO.userId != null ">
+        AND f.creater_user=#{queryDTO.userId}
+      </if>
+      <if test="queryDTO.moduleType != null and queryDTO.moduleType != ''">
+        AND f.module_type=#{queryDTO.moduleType}
+      </if>
+    </trim>
+  </sql>
+  <sql id="orderByPage">
+    <choose>
+      <when test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+        order by
+        <foreach collection="idList"  separator="," item="item">
+          <choose>
+            <when test="item.column == 'file_name'.toString() or item.column == 'file_path'.toString() ">
+              f.${item.column}
+            </when>
+            <otherwise>
+              a.${item.column}
+            </otherwise>
+          </choose>
+
+          <choose>
+            <when test="item.asc">
+              asc
+            </when>
+            <otherwise>
+              desc
+            </otherwise>
+          </choose>
+        </foreach>
+        ,f.create_time desc
+      </when>
+      <otherwise>
+        order by f.create_time desc
+      </otherwise>
+    </choose>
+
+    LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+  </sql>
+  <select id="queryCount" resultType="integer">
+    select count(*) from abstract a inner join file f on a.file_id=f.id
+    <include refid="queryByPageWhere"/>
+  </select>
+<!--  由于摘要内容过长，需要单独查询-->
+  <select id="selectInfoByQuery" resultMap="AbstractInfoMap" parameterType="cn.edu.ncu.pojo.query.AbstractInfoQuery">
+    select a.id,a.title,a.file_id,f.file_name,f.file_path,f.create_time
+        from abstract a inner join file f on a.file_id=f.id
+    <include refid="queryByPageWhere"/>
+    <include refid="orderByPage"/>
+  </select>
+</mapper>

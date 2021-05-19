@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.QuartzTaskLogMapper">
+
+    <resultMap id="QuartzTaskLogDTO" type="cn.edu.ncu.pojo.vo.QuartzTaskLogVO"></resultMap>
+
+    <sql id="baseSql">
+        tl.id,
+        tl.task_id,
+        tl.task_name,
+        tl.task_params,
+        tl.process_status,
+        tl.process_duration,
+        tl.process_log,
+        tl.ip_address,
+        tl.update_time,
+        tl.create_time
+    </sql>
+    <sql id="queryByPageWhere">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="queryDTO.taskId != null">
+                AND tl.task_id = #{queryDTO.taskId}
+            </if>
+        </trim>
+    </sql>
+    <sql id="orderByPage">
+        <choose>
+            <when test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+                order by
+                <foreach collection="idList"  separator="," item="item">
+                    tl.${item.column}
+                    <choose>
+                        <when test="item.asc">
+                            asc
+                        </when>
+                        <otherwise>
+                            desc
+                        </otherwise>
+                    </choose>
+                </foreach>
+                ,tl.create_time desc
+            </when>
+            <otherwise>
+                order by tl.create_time desc
+            </otherwise>
+        </choose>
+
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+    <select id="queryListCount" resultType="integer">
+        SELECT count(*)
+        FROM quartz_task_log tl
+        <include refid="queryByPageWhere"/>
+    </select>
+    <select id="queryList" resultMap="QuartzTaskLogDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        quartz_task_log tl
+        <include refid="queryByPageWhere"/>
+        <include refid="orderByPage"/>
+    </select>
+
+</mapper>

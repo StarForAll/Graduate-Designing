@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.FileMapper">
+    <resultMap id="fileMap" type="cn.edu.ncu.dao.entity.File"></resultMap>
+    <resultMap id="fileDTO" type="cn.edu.ncu.pojo.dto.FileDTO"></resultMap>
+    <resultMap id="fileVO" type="cn.edu.ncu.pojo.vo.FileVO"></resultMap>
+
+    <insert id="insertFileBatch"  parameterType="java.util.List">
+        INSERT INTO file (
+        id,module_id,module_type,file_name,file_size,file_type,file_path,creater_user,file_location_type
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.moduleId},#{item.moduleType},#{item.fileName},#{item.fileSize},#{item.fileType},#{item.filePath},#{item.createrUser},#{item.createrUserType},#{item.fileLocationType})
+        </foreach>
+    </insert>
+
+    <insert id="insertFileEntityBatch"  parameterType="java.util.List">
+        INSERT INTO file (
+        id,
+        module_id,
+        module_type,
+        file_name,
+        file_size,
+        file_type,
+        file_path,
+        creater_user,
+        file_location_type
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.moduleId},#{item.moduleType},#{item.fileName},#{item.fileSize},#{item.fileType},#{item.filePath},#{item.createrUser},#{item.createrUserType},#{item.fileLocationType})
+        </foreach>
+    </insert>
+
+    <delete id="deleteFilesByModuleId">
+        DELETE FROM file WHERE module_id =#{moduleId}
+    </delete>
+
+    <delete id="deleteFilesByModuleIdAndModuleType">
+        DELETE FROM file WHERE module_id =#{moduleId} and module_type=#{moduleType}
+    </delete>
+
+    <select id="listFilesByModuleId" resultMap="fileVO">
+        SELECT * FROM file WHERE module_id =#{moduleId}
+    </select>
+
+    <select id="listFilesByModuleIdAndModuleType" resultMap="fileVO">
+        SELECT * FROM file WHERE module_id =#{moduleId} and module_type=#{moduleType}
+    </select>
+
+    <select id="listFilesByModuleIdAndModuleTypes" resultMap="fileVO">
+        SELECT * FROM file WHERE module_id =#{moduleId} and module_type IN
+        <foreach collection="moduleTypes" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="listFilesByModuleIdsAndModuleType" resultMap="fileVO">
+        SELECT * FROM file WHERE
+        module_id IN
+        <foreach collection="moduleIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        and module_type=#{moduleType}
+    </select>
+
+
+    <select id="listFilesByFileIds" resultMap="fileVO">
+        SELECT * FROM file WHERE id IN
+        <foreach collection="fileIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </select>
+    <sql id="queryByPageWhere">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="queryDTO.moduleType != null and queryDTO.moduleType != ''">
+                AND module_type = #{queryDTO.moduleType}
+            </if>
+            <if test="queryDTO.fileName != null and queryDTO.fileName != '' ">
+                AND INSTR(file_name,#{queryDTO.fileName})
+            </if>
+            <if test="queryDTO.fileLocationType != null ">
+                AND file_location_type = #{queryDTO.fileLocationType}
+            </if>
+        </trim>
+    </sql>
+    <sql id="orderByPage">
+        <choose>
+            <when test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+                order by
+                <foreach collection="idList"  separator="," item="item">
+                    ${item.column}
+                    <choose>
+                        <when test="item.asc">
+                            asc
+                        </when>
+                        <otherwise>
+                            desc
+                        </otherwise>
+                    </choose>
+                </foreach>
+                ,create_time desc
+            </when>
+            <otherwise>
+                order by create_time desc
+            </otherwise>
+        </choose>
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+    <select id="queryListCount" resultType="integer">
+        SELECT count(*) FROM file
+        <include refid="queryByPageWhere"/>
+    </select>
+    <select id="queryListByPage" resultMap="fileVO">
+        SELECT * FROM file
+        <include refid="queryByPageWhere"/>
+        <include refid="orderByPage"/>
+    </select>
+
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.QuartzTaskMapper">
+
+    <resultMap id="QuartzTaskDTO" type="cn.edu.ncu.dao.entity.QuartzTaskEntity"></resultMap>
+
+    <sql id="baseSql">
+        t.id,
+        t.task_name,
+        t.task_bean,
+        t.task_params,
+        t.task_cron,
+        t.task_status,
+        t.remark,
+        t.update_time,
+        t.create_time
+    </sql>
+    <sql id="orderByPage">
+        <if test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+            order by
+            <foreach collection="idList"  separator="," item="item">
+                t.${item.column}
+                <choose>
+                    <when test="item.asc">
+                        asc
+                    </when>
+                    <otherwise>
+                        desc
+                    </otherwise>
+                </choose>
+            </foreach>
+        </if>
+
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+
+    <select id="queryListCount" resultType="integer">
+        SELECT count(*) FROM quartz_task t
+    </select>
+    <select id="queryList" resultMap="QuartzTaskDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM quartz_task t
+        <include refid="orderByPage"/>
+    </select>
+    <update id="update">
+        update quartz_task
+        <set>
+            <if test="taskName !=null and taskName !=''">
+                task_name=#{taskName},
+            </if>
+            <if test="taskBean !=null and taskBean !=''">
+                task_bean=#{taskBean},
+            </if>
+            <if test="taskParams !=null and taskParams !=''">
+                task_params=#{taskParams},
+            </if>
+            <if test="taskCron !=null and taskCron !=''">
+                task_cron=#{taskCron},
+            </if>
+            <if test="taskStatus !=null ">
+                task_status=#{taskStatus},
+            </if>
+            <if test="remark !=null and remark !=''">
+                remark=#{remark},
+            </if>
+            <if test="updateTime !=null">
+                update_time=#{updateTime},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <update id="updateStatus">
+        UPDATE quartz_task t
+        set t.task_status = #{taskStatus}
+        WHERE t.id = #{taskId}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.DataScopeRoleMapper">
+
+    <resultMap id="DataScopeRoleEntity" type="cn.edu.ncu.dao.entity.DataScopeRole"></resultMap>
+
+    <select id="listByRoleId" resultMap="DataScopeRoleEntity">
+        select id,data_scope_type,view_type,role_id,update_time,create_time from role_data_scope where role_id = #{roleId}
+    </select>
+
+    <select id="listByRoleIdList" resultMap="DataScopeRoleEntity">
+        select id,data_scope_type,view_type,role_id,update_time,create_time from role_data_scope where role_id IN
+        <foreach collection="roleIdList" item="item" open="(" close= ")"  separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <delete id="deleteByRoleId">
+        DELETE FROM role_data_scope
+        WHERE role_id = #{roleId}
+    </delete>
+
+    <insert id="batchInsert"  parameterType="java.util.List">
+        INSERT INTO role_data_scope (id,data_scope_type,view_type,role_id,update_time,create_time) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.id},
+            #{item.dataScopeType},
+            #{item.viewType},
+            #{item.roleId},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
+
+</mapper>

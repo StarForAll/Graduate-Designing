@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.RoleEmployeeMapper">
+
+
+    <resultMap id="EmployeeDTO" type="cn.edu.ncu.pojo.dto.EmployeeDTO"></resultMap>
+
+
+    <sql id="baseSql">
+        er.id,
+        er.role_id,
+        er.employee_id,
+        er.update_time,
+        er.create_time
+    </sql>
+
+    <sql id="queryByPageWhere">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="queryDTO.roleName != null and queryDTO.roleName != ''">
+                <bind name="likeRoleName" value=" '%' + queryDTO.roleName +'%' "></bind>
+                AND r.role_name like #{likeRoleName}
+            </if>
+            <if test="queryDTO.roleId != null">
+                AND er.role_id = #{queryDTO.roleId}
+            </if>
+        </trim>
+    </sql>
+    <sql id="orderByPage">
+        <if test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+            order by
+            <foreach collection="idList"  separator="," item="item">
+                e.${item.column}
+                <choose>
+                    <when test="item.asc">
+                        asc
+                    </when>
+                    <otherwise>
+                        desc
+                    </otherwise>
+                </choose>
+            </foreach>
+        </if>
+
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+    <select id="selectRoleIdByEmployeeId" resultType="java.lang.Long">
+        SELECT
+        er.role_id
+        FROM
+        role_employee er
+        WHERE
+        er.employee_id = #{employeeId}
+    </select>
+
+    <select id="selectEmployeeCountByName" resultType="integer">
+        select count(*) from role_employee er
+        left join employee e on er.employee_id = e.id
+        left join role r on er.role_id = r.id
+        <include refid="queryByPageWhere"/>
+    </select>
+    <select id="selectEmployeeByNamePage" resultMap="EmployeeDTO">
+        SELECT
+        e.id,
+        e.login_name,
+        e.login_pwd,
+        e.actual_name,
+        e.nick_name,
+        e.phone,
+        e.id_card,
+        e.birthday,
+        e.email,
+        e.department_id,
+        e.is_leave,
+        e.is_disabled,
+        e.remark,
+        e.update_time,
+        e.create_time
+        FROM
+        role_employee er
+        left join employee e on er.employee_id = e.id
+        left join role r on er.role_id = r.id
+        <include refid="queryByPageWhere"/>
+        <include refid="orderByPage"/>
+    </select>
+
+    <select id="selectEmployeeByRoleId" resultMap="EmployeeDTO">
+        SELECT
+            e.id,
+            e.login_name,
+            e.login_pwd,
+            e.actual_name,
+            e.nick_name,
+            e.phone,
+            e.id_card,
+            e.birthday,
+            e.email,
+            e.department_id,
+            e.is_leave,
+            e.is_disabled,
+            e.remark,
+            e.update_time,
+            e.create_time
+        FROM
+        role_employee er
+        left join employee e on er.employee_id = e.id
+        WHERE
+        er.role_id = #{roleId}
+    </select>
+
+
+    <delete id="deleteByEmployeeId">
+        DELETE FROM role_employee
+        WHERE employee_id = #{employeeId}
+    </delete>
+
+
+    <delete id="deleteByRoleId">
+        DELETE FROM role_employee
+        WHERE role_id = #{roleId}
+    </delete>
+
+    <delete id="deleteByEmployeeIdRoleId">
+        DELETE FROM role_employee
+        WHERE role_id = #{roleId} and employee_id = #{employeeId}
+    </delete>
+
+
+    <delete id="batchDeleteEmployeeRole">
+        DELETE FROM role_employee
+        WHERE role_id = #{roleId} and employee_id in
+        <foreach collection="employeeIds" item="item" open="(" close= ")"  separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO role_employee (id,role_id, employee_id, update_time, create_time) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.id},
+            #{item.roleId},
+            #{item.employeeId},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
+
+
+</mapper>

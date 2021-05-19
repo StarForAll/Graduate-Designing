@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.NoticeMapper">
+
+    <resultMap id="NoticeEntity" type="cn.edu.ncu.dao.entity.Notice"></resultMap>
+    <resultMap id="NoticeDTO" type="cn.edu.ncu.pojo.vo.NoticeVO"></resultMap>
+    <resultMap id="NoticeDetailDTO" type="cn.edu.ncu.pojo.vo.NoticeDetailVO"></resultMap>
+    <resultMap id="NoticeReceiveDTO" type="cn.edu.ncu.pojo.dto.NoticeReceiveDTO"></resultMap>
+    <resultMap id="NoticeReadCountDTO" type="cn.edu.ncu.pojo.dto.NoticeReadCountDTO"></resultMap>
+    <sql id="queryByPageWhere">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="queryDTO.userId != null ">
+                AND n.create_user=#{queryDTO.userId}
+            </if>
+            <if test="queryDTO.startDate != null and queryDTO.startDate != ''">
+                AND DATE_FORMAT(n.create_time, '%Y-%m-%d') &gt;= #{queryDTO.startDate}
+            </if>
+            <if test="queryDTO.endDate != null and queryDTO.endDate != ''">
+                AND DATE_FORMAT(n.create_time, '%Y-%m-%d') &lt;= #{queryDTO.endDate}
+            </if>
+            <if test="queryDTO.title != null and queryDTO.title != ''">
+                AND INSTR(n.title,#{queryDTO.title})
+            </if>
+            <if test="queryDTO.deleted != null">
+                AND n.deleted = #{queryDTO.deleted}
+            </if>
+        </trim>
+    </sql>
+    <sql id="queryUnreadByPage">
+        <trim prefix="where" prefixOverrides="and|or">
+            n.id not in (select notice_id from notice_receive_record nrr where nrr.employee_id = #{employeeId})
+            and n.send_status = #{sendStatus}
+        </trim>
+    </sql>
+
+    <sql id="queryReceiveByPage">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="queryDTO.startDate != null and queryDTO.startDate != ''">
+                AND DATE_FORMAT(n.create_time, '%Y-%m-%d') &gt;= #{queryDTO.startDate}
+            </if>
+            <if test="queryDTO.endDate != null and queryDTO.endDate != ''">
+                AND DATE_FORMAT(n.create_time, '%Y-%m-%d') &lt;= #{queryDTO.endDate}
+            </if>
+            <if test="queryDTO.title != null and queryDTO.title != ''">
+                AND INSTR(n.title,#{queryDTO.title})
+            </if>
+            <if test="queryDTO.sendStatus != null">
+                AND n.send_status = #{queryDTO.sendStatus}
+            </if>
+        </trim>
+    </sql>
+    <sql id="orderByPage">
+        <choose>
+            <when test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+                order by
+                <foreach collection="idList"  separator="," item="item">
+                    <choose>
+                        <when test="item.column == 'actual_name'.toString()">
+                            e.${item.column}
+                        </when>
+                        <otherwise>
+                            n.${item.column}
+                        </otherwise>
+                    </choose>
+
+                    <choose>
+                        <when test="item.asc">
+                            asc
+                        </when>
+                        <otherwise>
+                            desc
+                        </otherwise>
+                    </choose>
+                </foreach>
+                ,n.create_time desc
+            </when>
+            <otherwise>
+                order by n.create_time desc
+            </otherwise>
+        </choose>
+
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+    <update id="update">
+        update notice
+        <set>
+            <if test="title !=null and title !=''">
+                title=#{title},
+            </if>
+            <if test="content !=null and content !=''">
+                content=#{content},
+            </if>
+            <if test="deleted !=null ">
+                deleted=#{deleted},
+            </if>
+            <if test="sendStatus !=null ">
+                send_status=#{sendStatus},
+            </if>
+            <if test="updateTime !=null ">
+                update_time=#{updateTime},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="queryCount" resultType="integer">
+        select count(*) from notice n
+        left join employee e on e.id = n.create_user
+        <include refid="queryByPageWhere"/>
+    </select>
+    <select id="queryByPage" resultMap="NoticeDTO">
+        select
+            n.id,
+            n.title,
+            n.create_user,
+            e.actual_name as createUserName,
+            n.send_status,
+            n.create_time
+        from notice n
+        left join employee e on e.id = n.create_user
+        <include refid="queryByPageWhere"/>
+        <include refid="orderByPage"/>
+    </select>
+
+    <select id="queryUnreadCount" resultType="integer">
+        select count(*) from notice n
+        left join employee e on e.id = n.create_user
+        <include refid="queryUnreadByPage"/>
+    </select>
+
+    <select id="queryUnreadByPage" resultMap="NoticeDTO">
+        select
+        n.id,
+        n.title,
+        n.send_status,
+        n.create_user,
+        e.actual_name as createUserName,
+        n.create_time
+        from notice n
+        left join employee e on e.id = n.create_user
+        <include refid="queryUnreadByPage"/>
+        order by n.create_time desc
+    </select>
+    <select id="queryReceiveCount" resultType="integer">
+        select count(*) from notice n
+        left join employee e on e.id = n.create_user
+        left join notice_receive_record nrr on nrr.notice_id=n.id and nrr.employee_id=#{queryDTO.employeeId}
+        <include refid="queryReceiveByPage"/>
+    </select>
+
+    <select id="queryReceiveByPage" resultMap="NoticeReceiveDTO">
+       select
+        n.id,
+        n.title,
+        n.create_user,
+        n.send_status,
+        e.actual_name as createUserName,
+        n.create_time,
+        nrr.create_time as receiveTime
+        from notice n
+        left join employee e on e.id = n.create_user
+        left join notice_receive_record nrr on nrr.notice_id=n.id and nrr.employee_id=#{queryDTO.employeeId}
+        <include refid="queryReceiveByPage"/>
+        <include refid="orderByPage"/>
+    </select>
+
+
+
+
+    <select id="detail" resultMap="NoticeDetailDTO">
+        select
+        n.id,
+        n.title,
+        n.content,
+        n.send_status,
+        n.create_user,
+        e.actual_name as createUserName,
+        n.create_time,
+        n.update_time
+        from notice n
+        left join employee e on e.id = n.create_user
+        where n.id = #{id}
+    </select>
+
+
+
+    <update id="logicDeleteById">
+        UPDATE notice
+        set deleted = #{deletedFlag}
+        WHERE id =#{id}
+    </update>
+
+
+    <delete id="logicDeleteByIds">
+        UPDATE notice set deleted = #{deletedFlag} where id in
+        <foreach collection="idList" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+    </delete>
+
+
+    <select id="noticeCount" resultType="integer">
+        select
+        count(1)
+        from notice where send_status = #{sendStatus}
+    </select>
+
+    <select id="readCount" resultMap="NoticeReadCountDTO">
+        SELECT
+        nrr.employee_id,
+        count(1) as readCount
+        from notice_receive_record nrr
+        where nrr.employee_id in
+        <foreach collection="employeeIds" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
+        GROUP BY nrr.employee_id
+    </select>
+
+
+
+    <select id="noticeUnreadCount" resultType="integer">
+        select
+        count(1)
+        from notice n
+        where n.id not in (select msg_id from notice_receive_record nrr where nrr.employee_id = #{employeeId})
+         and n.send_status = #{sendStatus}
+    </select>
+
+
+</mapper>

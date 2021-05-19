@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.PrivilegeMapper">
+
+    <resultMap id="PrivilegeEntity"
+               type="cn.edu.ncu.dao.entity.Privilege"></resultMap>
+
+    <sql id="baseSql">
+        p.id,
+        p.type,
+        p.name,
+        p.key,
+        p.url,
+        p.sort,
+        p.parent_key,
+        p.update_time,
+        p.create_time
+    </sql>
+
+    <delete id="deleteBatchIds" parameterType = "java.util.List">
+        delete from privilege where id in
+        <foreach collection="deleteIdList"  item="item" open="(" separator="," close=")"  >
+            #{item}
+        </foreach>
+    </delete>
+    <select id="selectByType" resultMap="PrivilegeEntity">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        privilege p
+        WHERE
+        p.type = #{type}
+    </select>
+
+
+    <select id="selectByExcludeType" resultMap="PrivilegeEntity">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        privilege p
+        WHERE
+        p.type &lt;&gt; #{type}
+    </select>
+    <update id="update">
+        update privilege
+        <set>
+            <if test="name !=null and name !=''">
+                `name`=#{name},
+            </if>
+            <if test="type !=null ">
+                `type`=#{type},
+            </if>
+            <if test="key !=null and key !=''">
+                `key`=#{key},
+            </if>
+            <if test="url !=null and url !=''">
+                url=#{url},
+            </if>
+            <if test="sort !=null ">
+                sort=#{sort},
+            </if>
+            <if test="parentKey !=null and parentKey !=''">
+                parent_key=#{parentKey},
+            </if>
+            <if test="updateTime !=null ">
+                update_time=#{updateTime},
+            </if>
+        </set>
+        where id =#{id}
+    </update>
+
+    <delete id="delByKeyList">
+        DELETE FROM privilege
+        WHERE `key` IN
+        <foreach collection="keyList" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="delByParentKeyList">
+        DELETE FROM privilege
+        WHERE parent_key IN
+        <foreach collection="keyList" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsert"  parameterType="java.util.List">
+        INSERT INTO privilege (`id`,`type`,`name`,`key`,url,sort,parent_key,create_time,update_time) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.id},
+            #{item.type},
+            #{item.name},
+            #{item.key},
+            #{item.url},
+            #{item.sort},
+            #{item.parentKey},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
+
+    <update id="batchUpdate">
+        <foreach collection="updateList" item="item" index="index" separator=";">
+            UPDATE `privilege`
+            <set>
+                <if test="item.type != null ">
+                    `type`=#{item.type},
+                </if>
+                <if test="item.name != null and item.name != ''">
+                    `name`=#{item.name},
+                </if>
+                <if test="item.url != null and item.url != ''">
+                    `url`=#{item.url},
+                </if>
+                <if test="item.sort != null ">
+                    `sort`=#{item.sort},
+                </if>
+                <if test="item.parentKey != null and item.parentKey != ''">
+                    parent_key=#{item.parentKey},
+                </if>
+                update_time=now()
+            </set>
+            WHERE `key` = #{item.key}
+        </foreach>
+    </update>
+
+
+
+    <select id="selectByParentKey" resultMap="PrivilegeEntity">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        privilege p
+        WHERE
+        p.parent_key = #{parentKey}
+        order by sort asc
+    </select>
+
+
+    <select id="selectByKey" resultMap="PrivilegeEntity">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        privilege p
+        WHERE
+        p.key = #{key}
+    </select>
+
+    <select id="selectByKeyList" resultMap="PrivilegeEntity">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        privilege p
+        WHERE
+        p.key in
+        <foreach item="item" collection="keyList" open="(" close=")"
+                 separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="selectAllPrivilege" resultMap="PrivilegeEntity">
+        SELECT
+        <include refid="baseSql"></include>,
+        parent.id as parent_id
+        FROM
+        privilege p
+        LEFT JOIN privilege parent on p.parent_key = parent.`key`
+    </select>
+
+</mapper>

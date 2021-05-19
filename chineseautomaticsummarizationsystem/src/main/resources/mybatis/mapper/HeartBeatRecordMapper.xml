@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.HeartBeatRecordMapper">
+
+    <!-- 心跳日志 -->
+    <insert id="insertHeartBeat" >
+        INSERT INTO heart_beat_record (
+            id,
+            project_path,
+            server_ip,
+            process_no,
+            process_start_time,
+            heart_beat_time
+        )
+        VALUES (
+             #{id},
+            #{projectPath},
+            #{serverIp},
+            #{processNo},
+            #{processStartTime},
+            #{heartBeatTime})
+    </insert>
+    
+    <update id="updateHeartBeatTimeById">
+        update heart_beat_record
+        set heart_beat_time = #{heartBeatTime}
+        <where>
+            id = #{id}
+        </where>
+    </update>
+    
+    <select id="query" resultType="cn.edu.ncu.dao.entity.HeartBeatRecord">
+      select * from heart_beat_record where project_path = #{projectPath} and server_ip = #{serverIp} and process_no =#{processNo}
+    </select>
+    <sql id="orderByPage">
+        <choose>
+            <when test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+                order by
+                <foreach collection="idList"  separator="," item="item">
+                    ${item.column}
+                    <choose>
+                        <when test="item.asc">
+                            asc
+                        </when>
+                        <otherwise>
+                            desc
+                        </otherwise>
+                    </choose>
+                </foreach>
+                ,heart_beat_time desc
+            </when>
+            <otherwise>
+                order by heart_beat_time desc
+            </otherwise>
+        </choose>
+
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+    <select id="pageQueryCount" resultType="integer">
+        SELECT count(*) FROM heart_beat_record
+    </select>
+    <select id="pageQuery" resultType="cn.edu.ncu.pojo.vo.HeartBeatRecordVO">
+       SELECT
+        *
+        FROM
+        heart_beat_record
+        <include refid="orderByPage"/>
+    </select>
+</mapper>

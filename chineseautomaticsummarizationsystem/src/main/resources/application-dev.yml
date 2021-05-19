@@ -1,0 +1,168 @@
+app:
+  version: 1.0.0
+
+# 数据库连接配置
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  redis:
+    database: 9
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:w~d.ﾶ￮2@}
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 100
+        max-idle: 10
+        max-wait: 3s
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cass?useUnicode=true&characterEncoding=utf8&useSSL=false&&allowMultiQueries=true
+    username: root
+    password: 123456
+    initial-size: 2
+    min-idle: 1
+    max-active: 10
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    filters: stat
+    druid:
+      username: root
+      password: 123456
+      login:
+        enabled: false
+    #    数据库连接池配置
+    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+#    hikari:
+#      maximum-pool-size: 10
+#      minimum-idle: 20
+#      max-lifetime: 1800000
+#      connection-timeout: 30000
+#      auto-commit: true
+#      pool-name: basedata_db_pool
+  #  json 配置
+  jackson:
+    serialization:
+      write-enums-using-to-string: true
+    deserialization:
+      read-enums-using-to-string: true
+      fail-on-unknown-properties: false
+    default-property-inclusion: always
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization.write-dates-as-timestamps: false
+  quartz:
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: devClusteredScheduler
+            instanceId: AUTO
+            skipUpdateCheck: true
+            rmi:
+              export: false
+              proxy: false
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 60000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 2
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+            threadNamePrefix: quartz
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: NEVER
+      schema: classpath:sql/quartz_mysql.sql
+  servlet:
+    multipart:
+
+      max-file-size: 30MB
+      max-request-size: 30MB
+
+
+org:
+  quartz:
+    plugin:
+      jobInitializer:
+        scanInterval: 300
+#  mybatis配置
+logging:
+  level:
+    cn.edu.ncu: debug
+    cn.edu.ncu.dao.mapper: debug
+    root: info
+  config: classpath:logback-spring.xml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:mybatis/mapper/*.xml
+  type-aliases-package: cn.edu.ncu.dao.entity
+#mapper:
+#  mappers: cn.edu.ncu.dao.mapper
+#  not-empty: false
+#  identity: mysql
+
+# swagger 配置
+swagger:
+  title: ChineseAutomaticSummarizationSystem
+  description: api for ChineseAutomaticSummarizationSystem
+  version: 1.1.0
+  termsOfServiceUrl: https://www.ncu.com
+  apiBasePackage: cn.edu.ncu.controller
+  packAge: cn.edu.ncu.controller
+
+#  服务端口号
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    basedir: tomcat-logs
+    accesslog:
+      enabled: true
+      pattern: '%t %{X-Forwarded-For}i %a "%r" %s %D (%D ms)'
+  port: 8080
+  servlet:
+    context-path: /auto-abstract-api
+
+
+file-upload-service:
+  path: file
+#  分页配置
+pagehelper:
+  reasonable: false
+  support-methods-arguments: false
+  params: count=countSql
+  offset-as-page-num: ture
+
+http:
+  pool:
+    max-total: 10
+    default-max-per-route: 5
+    socket-timeout: 8000
+    connect-timeout: 8000
+    connection-request-timeout: 8000
+
+jwt:
+  key: xzc-jwt-key
+
+
+reload:
+  thread-count: 1
+  time-interval: 300
+
+access-control-allow-origin: '*'
+
+heart-beat:
+    delayHandlerTime: 60000
+    intervalTime: 300000

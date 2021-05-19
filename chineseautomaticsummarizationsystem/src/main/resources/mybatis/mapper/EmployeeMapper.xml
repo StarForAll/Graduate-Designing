@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.EmployeeMapper">
+
+    <resultMap id="EmployeeDTO" type="cn.edu.ncu.pojo.dto.EmployeeDTO"></resultMap>
+
+    <resultMap id="EmployeeVO" type="cn.edu.ncu.pojo.vo.EmployeeVO"></resultMap>
+
+    <sql id="baseSql">
+        e.id,
+        e.login_name,
+        e.login_pwd,
+        e.actual_name,
+        e.nick_name,
+        e.phone,
+        e.id_card,
+        e.birthday,
+        e.email,
+        e.department_id,
+        e.is_leave,
+        e.is_disabled,
+        e.remark,
+        e.is_delete,
+        e.update_time,
+        e.create_time
+    </sql>
+    <sql id="queryByPageWhere">
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="queryDTO.phone != null and queryDTO.phone != ''">
+                <bind name="likephone" value=" '%' + queryDTO.phone +'%' "></bind>
+                AND e.actual_name like #{likephone}
+            </if>
+            <if test="queryDTO.actualName != null and queryDTO.actualName != ''">
+                <bind name="likeActualName" value=" '%' + queryDTO.actualName +'%' "></bind>
+                AND e.actual_name like #{likeActualName}
+            </if>
+            <if test="queryDTO.keyword != null and queryDTO.keyword != ''">
+                <bind name="likeName" value=" '%' + queryDTO.keyword +'%' "></bind>
+                AND (e.actual_name like #{likeName} or e.nick_name like #{likeName} or e.phone like #{likeName})
+            </if>
+
+            <if test="queryDTO.departmentId != null">
+                AND e.department_id = #{queryDTO.departmentId}
+            </if>
+            <if test="queryDTO.isLeave != null">
+                AND e.is_leave = #{queryDTO.isLeave}
+            </if>
+            <if test="queryDTO.isDisabled != null">
+                AND e.is_disabled = #{queryDTO.isDisabled}
+            </if>
+            <if test="queryDTO.isDelete != null">
+                AND e.is_delete = #{queryDTO.isDelete}
+            </if>
+            <if test="queryDTO.employeeIds != null and queryDTO.employeeIds.size > 0">
+                AND e.id IN
+                <foreach collection="queryDTO.employeeIds" open="(" close= ")" item="item" separator=","  >
+                    #{item}
+                </foreach>
+            </if>
+        </trim>
+    </sql>
+    <sql id="orderByPage">
+    <choose>
+        <when test="queryDTO.orders !=null and queryDTO.orders.size()>0">
+            order by
+            <foreach collection="idList"  separator="," item="item">
+                e.${item.column}
+                <choose>
+                    <when test="item.asc">
+                        asc
+                    </when>
+                    <otherwise>
+                        desc
+                    </otherwise>
+                </choose>
+            </foreach>
+            ,e.create_time desc
+        </when>
+        <otherwise>
+            order by e.create_time desc
+        </otherwise>
+    </choose>
+
+        LIMIT ${(queryDTO.pageNum - 1) * queryDTO.pageSize},#{queryDTO.pageSize}
+    </sql>
+    <update id="update" >
+        update employee e
+        <set>
+            <if test="loginName !=null and loginName !=''">
+                e.login_name=#{loginName},
+            </if>
+            <if test="loginPwd !=null and loginPwd !=''">
+                e.login_pwd=#{loginPwd},
+            </if>
+            <if test="actualName !=null and actualName !=''">
+                e.actual_name=#{actualName},
+            </if>
+            <if test="nickName !=null and nickName !=''">
+                e.nick_name=#{nickName},
+            </if>
+            <if test="phone !=null and phone !=''">
+                e.phone=#{phone},
+            </if>
+            <if test="idCard !=null and idCard !=''">
+                e.id_card=#{idCard},
+            </if>
+            <if test="birthday !=null and birthday !=''">
+                e.birthday=#{birthday},
+            </if>
+            <if test="email !=null and email !=''">
+                e.email=#{email},
+            </if>
+            <if test="departmentId !=null ">
+                e.department_id=#{departmentId},
+            </if>
+            <if test="isLeave !=null ">
+                e.is_leave=#{isLeave},
+            </if>
+            <if test="isDisabled !=null ">
+                e.is_disabled=#{isDisabled},
+            </if>
+            <if test="remark !=null and remark !=''">
+                e.remark=#{remark},
+            </if>
+            <if test="updateTime !=null ">
+                e.update_time=#{updateTime},
+            </if>
+            <if test="isDelete !=null ">
+                e.is_delete=#{isDelete},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+    <select id="selectEmployeeCount" resultType="integer">
+        select count(*) from employee e
+        LEFT JOIN department d ON d.id = e.department_id
+        <include refid="queryByPageWhere"/>
+    </select>
+    <select id="selectEmployeeList" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>,
+        d.name AS department_name
+        FROM
+        employee e
+        LEFT JOIN department d ON d.id = e.department_id
+        <include refid="queryByPageWhere"/>
+        <include refid="orderByPage"/>
+    </select>
+
+
+    <update id="batchUpdateStatus">
+        UPDATE employee e
+        set e.is_disabled = #{isDisabled}
+        WHERE id in
+        <foreach collection="employeeIds" item="item" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <select id="login" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        WHERE
+        e.login_name = #{loginName} and e.login_pwd = #{loginPwd}
+    </select>
+
+
+    <select id="getByLoginName" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        WHERE
+        e.login_name = #{loginName} and e.is_disabled = #{isDisabled}
+    </select>
+
+
+    <select id="getByPhone" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        WHERE
+        e.phone = #{phone} and e.is_disabled = #{isDisabled}
+    </select>
+
+
+    <select id="listAll" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        order by e.create_time desc
+    </select>
+
+    <select id="countByDepartmentId" resultType="integer">
+        SELECT
+        count(1)
+        FROM
+        employee e
+        WHERE
+        e.department_id = #{depId}
+        <if test="deleteFlag != null">
+            AND e.is_delete = #{deleteFlag}
+        </if>
+    </select>
+
+
+    <select id="getEmployeeIdByDeptId" resultMap="EmployeeVO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        WHERE
+        e.department_id = #{departmentId}
+        order by e.create_time desc
+    </select>
+
+
+    <select id="getEmployeeIdByDeptIds" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        WHERE
+        e.department_id IN
+        <foreach collection="departmentIds" item="item" open="("  close=")" separator=",">
+            #{item}
+        </foreach>
+        order by e.create_time desc
+    </select>
+
+    <select id="getEmployeeByIds" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        where e.id IN
+        <foreach collection="ids" item="item" open="("  close=")"  separator=",">
+            #{item}
+        </foreach>
+        order by e.create_time desc
+    </select>
+
+
+    <select id="getEmployeeById" resultMap="EmployeeDTO">
+        SELECT
+        <include refid="baseSql"></include>
+        FROM
+        employee e
+        where e.id = #{id}
+    </select>
+
+    <update id="updatePassword">
+         UPDATE  employee
+        SET login_pwd = #{password}
+        WHERE id = #{employeeId}
+    </update>
+
+
+</mapper>

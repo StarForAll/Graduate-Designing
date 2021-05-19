@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.NoticeReceiveRecordMapper">
+
+    <resultMap id="NoticeReceiveRecordEntity" type="cn.edu.ncu.dao.entity.NoticeReceiveRecord"></resultMap>
+
+
+    <delete id="deleteByNoticeId">
+        delete from notice_receive_record where notice_id = #{noticeId}
+    </delete>
+
+    <insert id="batchInsert"  parameterType="java.util.List">
+        INSERT INTO notice_receive_record (id,notice_id, employee_id, update_time, create_time) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.id},
+            #{item.noticeId},
+            #{item.employeeId},
+            now(),
+            now()
+            )
+        </foreach>
+    </insert>
+
+
+
+
+    <select id="selectByEmployeeAndNotice" resultMap="NoticeReceiveRecordEntity">
+        SELECT
+        nrr.id,
+        nrr.employee_id,
+        nrr.notice_id,
+        nrr.create_time,
+        nrr.update_time
+        from notice_receive_record nrr
+        where nrr.employee_id = #{employeeId} and nrr.notice_id=#{noticeId}
+    </select>
+
+
+</mapper>

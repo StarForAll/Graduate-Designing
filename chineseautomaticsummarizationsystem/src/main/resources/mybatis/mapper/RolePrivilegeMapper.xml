@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncu.dao.mapper.RolePrivilegeMapper">
+
+    <resultMap id="RolePrivilegeEntity" type="cn.edu.ncu.dao.entity.RolePrivilege"></resultMap>
+
+    <resultMap id="PrivilegeEntity" type="cn.edu.ncu.dao.entity.Privilege"></resultMap>
+
+    <sql id="baseSql">
+        rp.id,
+        rp.role_id,
+        rp.privilege_key,
+        rp.update_time,
+        rp.create_time
+    </sql>
+
+
+    <delete id="deleteByRoleId">
+        DELETE FROM role_privilege
+        WHERE role_id = #{roleId}
+    </delete>
+
+    <delete id="deleteByPrivilegeKey">
+        DELETE FROM role_privilege
+        WHERE privilege_key in
+        <foreach collection="privilegeKeyList" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+
+    <insert id="batchInsert"  parameterType="java.util.List">
+        INSERT INTO role_privilege (id,role_id, privilege_key, update_time, create_time) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+                #{item.id},
+                #{item.roleId},
+                #{item.privilegeKey},
+                now(),
+                now()
+            )
+        </foreach>
+    </insert>
+
+
+
+    <select id="listByRoleIds" resultMap="PrivilegeEntity">
+        SELECT DISTINCT p.*
+        FROM
+        privilege p
+        left JOIN role_privilege rp on p.key = rp.privilege_key
+        WHERE
+        rp.role_id IN
+        <foreach collection="roleIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+        order by p.create_time desc
+    </select>
+
+    <select id="listByRoleId" resultMap="PrivilegeEntity">
+        SELECT p.*
+        FROM
+        privilege p
+        left JOIN role_privilege rp on p.key = rp.privilege_key
+        WHERE
+        rp.role_id = #{roleId}
+
+    </select>
+
+
+</mapper>
