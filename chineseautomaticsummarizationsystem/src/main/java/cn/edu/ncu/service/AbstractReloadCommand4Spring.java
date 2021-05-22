@@ -3,14 +3,15 @@ package cn.edu.ncu.service;
 import cn.edu.ncu.common.reload.ReloadManager;
 import cn.edu.ncu.dao.entity.ReloadItem;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 检测是否 Reload 的类
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: 检测是否 Reload 的类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public abstract class AbstractReloadCommand4Spring implements ReloadCommandInterface {
 
@@ -25,7 +26,7 @@ public abstract class AbstractReloadCommand4Spring implements ReloadCommandInter
     @Autowired
     protected ReloadManager reloadManager;
 
-//    @PostConstruct
+    @PostConstruct
     public void init() {
         List<ReloadItem> readTagStatesFromDb = readReloadItem();
         if (readTagStatesFromDb != null) {

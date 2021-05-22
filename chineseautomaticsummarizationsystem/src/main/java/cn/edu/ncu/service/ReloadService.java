@@ -6,12 +6,11 @@ import cn.edu.ncu.pojo.vo.ReloadItemVO;
 import cn.edu.ncu.pojo.vo.ReloadResultVO;
 
 import java.util.List;
-
 /**
- *  initDefines 业务
- *
- * @author listen
- * @date 2018/02/10 13:49
+ * @Author: XiongZhiCong
+ * @Description: reload
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface ReloadService {
 

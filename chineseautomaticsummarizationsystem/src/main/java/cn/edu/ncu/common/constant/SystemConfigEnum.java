@@ -5,14 +5,10 @@ import java.util.Arrays;
 import java.util.Optional;
 
 /**
- * [ 系统配置常量类 ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: [ 系统配置常量类 ]
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class SystemConfigEnum {
 

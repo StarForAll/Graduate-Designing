@@ -12,14 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date 2019-05-15 11:32:14
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 用户操作日志
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class UserOperateLogController implements UserOperateLogApi {

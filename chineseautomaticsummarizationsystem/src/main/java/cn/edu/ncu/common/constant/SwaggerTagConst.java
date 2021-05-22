@@ -1,11 +1,10 @@
 package cn.edu.ncu.common.constant;
 
 /**
- * []
- *
- * @author yandanyang
- * @version 1.0
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: swagger标签常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class SwaggerTagConst {
 

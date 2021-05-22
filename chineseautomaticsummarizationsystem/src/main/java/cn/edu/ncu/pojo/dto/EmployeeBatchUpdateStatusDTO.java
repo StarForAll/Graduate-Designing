@@ -7,10 +7,10 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * 批量更新
- *
- * @author lidoudou
- * @date 2017年12月21日上午13:17:52
+ * @Author: XiongZhiCong
+ * @Description: 员工状态批量更新
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class EmployeeBatchUpdateStatusDTO {

@@ -14,10 +14,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- *  Reload 路由
- *
- * @author listen
- * @date 2018/02/10 09:18
+ * @Author: XiongZhiCong
+ * @Description: reload重启
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class ReloadController implements ReloadApi {

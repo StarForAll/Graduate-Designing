@@ -17,15 +17,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * 
- * [  ]
- * 
- * @version 1.0
- * @since JDK1.8
- * @author yandanyang
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date  
+ * @Author: XiongZhiCong
+ * @Description: 定时任务API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @OperateLog
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_TASK_SCHEDULER})

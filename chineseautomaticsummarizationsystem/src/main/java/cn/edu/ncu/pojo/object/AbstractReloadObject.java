@@ -8,9 +8,10 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
- * AbstractReloadObject 处理程序的抽象类
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: AbstractReloadObject 处理程序的抽象类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public abstract class AbstractReloadObject {
 

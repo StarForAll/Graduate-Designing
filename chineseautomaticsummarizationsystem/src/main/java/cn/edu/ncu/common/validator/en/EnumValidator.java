@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * 枚举类校验器
- *
- * @author listen
- * @date 2017/11/11 15:34
+ * @Author: XiongZhiCong
+ * @Description: 枚举类校验器
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class EnumValidator implements ConstraintValidator<CheckEnum, Object> {
 

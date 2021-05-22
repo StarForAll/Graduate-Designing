@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 部门管理业务类
- *
- * @author listen
- * @date 2017/12/19 14:25
+ * @Author: XiongZhiCong
+ * @Description: 部门管理业务类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface DepartmentService {
 

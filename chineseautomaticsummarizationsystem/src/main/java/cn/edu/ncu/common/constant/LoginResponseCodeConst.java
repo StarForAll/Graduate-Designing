@@ -1,11 +1,10 @@
 package cn.edu.ncu.common.constant;
 
 /**
- * 员工常量类
- * 1001-1999
- *
- * @author lidoudou
- * @date 2017年12月19日下午19:04:52
+ * @Author: XiongZhiCong
+ * @Description: 登录响应常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class LoginResponseCodeConst extends ResponseCodeConst {
 

@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_JOB})
 @OperateLog

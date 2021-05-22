@@ -15,7 +15,7 @@ export const task = [
         path: '/system-setting/task-list',
         name: 'TaskList',
         meta: {
-          title: '任务管理',
+          title: '定时任务管理',
           icon: 'icon iconfont icondingshirenwu',
           privilege: [
             {

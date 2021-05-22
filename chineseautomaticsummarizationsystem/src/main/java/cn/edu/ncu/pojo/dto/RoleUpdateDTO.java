@@ -5,10 +5,10 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 /**
- * 角色更新修改DTO
- *
- * @author listen
- * @date 2017/12/28 09:40
+ * @Author: XiongZhiCong
+ * @Description: 角色更新修改DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class RoleUpdateDTO extends RoleAddDTO {

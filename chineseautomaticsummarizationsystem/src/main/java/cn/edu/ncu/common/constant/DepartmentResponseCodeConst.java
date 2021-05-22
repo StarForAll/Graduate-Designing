@@ -1,11 +1,10 @@
 package cn.edu.ncu.common.constant;
 
 /**
- * 部门返回信息常量类
- * 2001 - 2999
- *
- * @author listen
- * @date 2017/12/19 18:52
+ * @Author: XiongZhiCong
+ * @Description: 部门返回信息常量类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class DepartmentResponseCodeConst extends ResponseCodeConst {
 

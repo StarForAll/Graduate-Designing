@@ -156,7 +156,7 @@ http:
 jwt:
   key: xzc-jwt-key
 
-
+# 创建一个后台进程用于检测reload的状态标识是否变化，检测周期为300秒，变化执行含有reload注解的方法
 reload:
   thread-count: 1
   time-interval: 300

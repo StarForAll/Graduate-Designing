@@ -13,10 +13,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * 员工dao接口
- *
- * @author lidoudou
- * @date 2017年12月19日下午1:36:30
+ * @Author: XiongZhiCong
+ * @Description: 员工dao接口
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface EmployeeMapper extends CommonMapper<Employee> {

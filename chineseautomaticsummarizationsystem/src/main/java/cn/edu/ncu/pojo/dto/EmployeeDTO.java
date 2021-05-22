@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 员工列表DTO
- *
- * @author lidoudou
- * @date 2017年12月21日上午09:09:31
+ * @Author: XiongZhiCong
+ * @Description: 员工列表DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class EmployeeDTO {

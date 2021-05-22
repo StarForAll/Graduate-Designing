@@ -4,12 +4,11 @@ package cn.edu.ncu.service.exception;
 import cn.edu.ncu.common.constant.IErrorCode;
 
 /**
- * @param
- * @description:
- * @author: Administrator
- * @create: 2020-10-08 11:24
- * @since
- **/
+ * @Author: XiongZhiCong
+ * @Description: 业务层异常码
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
+ */
 public enum BaseDataExceptionCode implements IErrorCode {
     /**
      *

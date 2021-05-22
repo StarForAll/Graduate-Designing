@@ -8,10 +8,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 心跳记录日志
- * User: simajinqiang
- * Date: 2018/7/9
- * Time: 11:11
+ * @Author: XiongZhiCong
+ * @Description:心跳记录日志
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name= "heart_beat_record")

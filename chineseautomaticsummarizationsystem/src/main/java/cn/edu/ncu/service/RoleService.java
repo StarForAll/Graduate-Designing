@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * 角色管理业务
- *
- * @author listen
- * @date 2017/12/28 09:37
+ * @Author: XiongZhiCong
+ * @Description: 角色管理业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface RoleService {
 

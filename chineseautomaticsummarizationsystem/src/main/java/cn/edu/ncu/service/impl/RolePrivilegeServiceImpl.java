@@ -26,14 +26,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * [ 后台员工权限 ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: [ 后台员工权限 ]
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Service
 public class RolePrivilegeServiceImpl implements RolePrivilegeService {

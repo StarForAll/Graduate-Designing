@@ -1,8 +1,9 @@
 package cn.edu.ncu.dao.entity;
 /**
- * ReloadItem 类
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: ReloadItem 类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class ReloadItem {
 

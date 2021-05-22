@@ -1,15 +1,10 @@
 package cn.edu.ncu.common.constant;
 
 /**
- * 
- * [ 5001-5999 ]
- * 
- * @version 1.0
- * @since JDK1.8
- * @author yandanyang
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
+ * @Author: XiongZhiCong
+ * @Description: 系统设置响应常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class SystemConfigResponseCodeConst extends ResponseCodeConst {
 

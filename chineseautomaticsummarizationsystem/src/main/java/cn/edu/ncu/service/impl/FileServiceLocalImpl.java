@@ -22,14 +22,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/5/11 0011 下午 16:15
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 本地文件业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Slf4j
 @Service(FileServiceNameConst.LOCAL)

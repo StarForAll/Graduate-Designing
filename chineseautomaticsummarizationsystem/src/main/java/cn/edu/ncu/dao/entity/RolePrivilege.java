@@ -6,15 +6,10 @@ import lombok.Data;
 import javax.persistence.Table;
 
 /**
- * 
- * [ 角色 权限关系 ]
- * 
- * @version 1.0
- * @since JDK1.8
- * @author yandanyang
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
+ * @Author: XiongZhiCong
+ * @Description: 角色 权限关系
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name="role_privilege")

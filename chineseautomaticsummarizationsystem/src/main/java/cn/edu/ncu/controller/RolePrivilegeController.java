@@ -10,14 +10,10 @@ import cn.edu.ncu.pojo.vo.RolePrivilegeTreeVO;
 import javax.validation.Valid;
 
 /**
- * [ 与员工权限相关：角色权限关系、权限列表 ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 角色权限
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class RolePrivilegeController implements RolePrivilegeApi {

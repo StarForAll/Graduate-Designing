@@ -19,10 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 /**
- * 后台登录
- *
- * @author lidoudou
- * @date 2017年12月19日上午11:46:04
+ * @Author: XiongZhiCong
+ * @Description: 登录API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_USER_LOGIN})
 @OperateLog

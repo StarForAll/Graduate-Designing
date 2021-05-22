@@ -5,9 +5,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 岗位
- *
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位查询DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class PositionQueryDTO extends PageParamDTO {

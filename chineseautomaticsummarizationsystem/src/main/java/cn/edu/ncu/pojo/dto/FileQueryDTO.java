@@ -8,10 +8,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
+ * @Author: XiongZhiCong
  * @Description: 文件信息查询dto
- * @Author: sbq
- * @CreateDate: 2019/7/3 17:38
- * @Version: 1.0
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class FileQueryDTO extends PageParamDTO {

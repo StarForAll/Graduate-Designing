@@ -1,10 +1,10 @@
 package cn.edu.ncu.common.validator.bigdecimal;
 
 /**
- * 比较符枚举类
- *
- * @author listen
- * @date 2018/03/20 14:01
+ * @Author: XiongZhiCong
+ * @Description: 比较符枚举类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public enum ComparisonSymbolEnum {
 

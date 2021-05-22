@@ -1,9 +1,10 @@
 package cn.edu.ncu.common.constant;
 
 /**
- *
- * @author yandanyang
- * 角色业务状态码 6001 - 6999
+ * @Author: XiongZhiCong
+ * @Description: 角色业务状态码 6001 - 6999
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class RoleResponseCodeConst extends ResponseCodeConst {
 

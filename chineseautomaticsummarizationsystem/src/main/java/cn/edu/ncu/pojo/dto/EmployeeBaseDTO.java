@@ -8,10 +8,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
- * 添加员工
- *
- * @author lidoudou
- * @date 2017年12月19日下午2:06:31
+ * @Author: XiongZhiCong
+ * @Description: 员工DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class EmployeeBaseDTO {

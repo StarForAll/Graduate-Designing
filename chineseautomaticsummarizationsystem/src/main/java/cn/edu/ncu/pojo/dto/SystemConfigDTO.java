@@ -6,15 +6,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 
- * [  ]
- * 
- * @version 1.0
- * @since JDK1.8
- * @author yandanyang
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
+ * @Author: XiongZhiCong
+ * @Description: 系统设置DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class SystemConfigDTO {

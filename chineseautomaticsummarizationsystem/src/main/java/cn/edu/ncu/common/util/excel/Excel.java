@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * zhuoda
- */
 public class Excel {
 
     List<Sheet> sheetList = new ArrayList<Sheet>();;

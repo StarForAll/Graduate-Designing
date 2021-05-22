@@ -7,10 +7,10 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * 系统配置参数 实体类
- *
- * @author GHQ
- * @date 2017-12-23 13:41
+ * @Author: XiongZhiCong
+ * @Description: 系统配置参数 实体类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name="system_config")

@@ -11,8 +11,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @author cyj
- * @date 2018-01-05 上午 9:49
+ * @Author: XiongZhiCong
+ * @Description: 文件Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface FileMapper extends CommonMapper<File> {

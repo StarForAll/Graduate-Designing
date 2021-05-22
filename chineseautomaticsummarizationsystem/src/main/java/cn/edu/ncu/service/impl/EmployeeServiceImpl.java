@@ -41,10 +41,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
- * 员工管理
- *
- * @author lidoudou
- * @date 2017年12月21日上午11:54:52
+ * @Author: XiongZhiCong
+ * @Description: 员工管理业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Service
 public class EmployeeServiceImpl implements EmployeeService {

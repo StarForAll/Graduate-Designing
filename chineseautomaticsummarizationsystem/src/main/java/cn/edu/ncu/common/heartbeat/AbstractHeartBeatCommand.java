@@ -13,7 +13,6 @@ import java.util.concurrent.*;
 
 /**
 * @Description: 心跳服务
-* @Author: simajinqiang
 * @Date: 2018/7/9 16:26
 */
 public abstract class AbstractHeartBeatCommand implements HeartBeatRecordCommendInterface {

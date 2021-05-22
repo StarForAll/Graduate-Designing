@@ -1,9 +1,9 @@
 package cn.edu.ncu.common.constant;
 /**
- *  initDefines 项 常量
- *
- * @author listen
- * @date 2018/02/10 14:29
+ * @Author: XiongZhiCong
+ * @Description: reload标签常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class ReloadTagConst {
 

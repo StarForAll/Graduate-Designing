@@ -15,7 +15,7 @@ export const reload = [
         path: '/reload/smart-reload-list',
         name: 'SmartReloadList',
         meta: {
-          title: 'SmartReload',
+          title: '动态Reload',
           icon: 'icon iconfont icondongtaijiazai',
           privilege: [
             {

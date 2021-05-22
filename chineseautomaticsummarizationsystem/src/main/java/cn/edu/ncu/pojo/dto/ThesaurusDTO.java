@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author: XiongZhiCong
- * @Description:
+ * @Description: 词库DTO
  * @Date: Created in 16:45 2021/4/13
  * @Modified By:
  */

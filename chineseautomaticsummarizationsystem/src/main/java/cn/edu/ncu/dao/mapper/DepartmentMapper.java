@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * t_department dao接口
- *
- * @author listen
- * @date 2017/12/19 10:58
+ * @Author: XiongZhiCong
+ * @Description: 部门Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface DepartmentMapper extends CommonMapper<Department> {

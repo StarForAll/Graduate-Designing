@@ -2,7 +2,7 @@ package cn.edu.ncu.pojo.dto;
 
 /**
  * @Author: XiongZhiCong
- * @Description:
+ * @Description: 摘要加载参数DTO
  * @Date: Created in 20:02 2021/4/21
  * @Modified By:
  */

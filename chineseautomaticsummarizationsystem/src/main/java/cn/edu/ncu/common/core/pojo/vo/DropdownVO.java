@@ -7,13 +7,10 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @class DropdownVO
- * @classdesc 由其作用得名，专为下拉框设计，常用于 id -> name
- * @author liang_xiaojian
- * @date 2020/9/24  23:36
- * @version 1.0.0
- * @see
- * @since
+ * @Author: XiongZhiCong
+ * @Description: 由其作用得名，专为下拉框设计，常用于 id -> name
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @AllArgsConstructor

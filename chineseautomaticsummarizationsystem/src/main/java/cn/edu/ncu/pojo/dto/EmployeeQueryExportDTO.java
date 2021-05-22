@@ -6,8 +6,10 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author zzr
- * 不带分页的查询条件
+ * @Author: XiongZhiCong
+ * @Description: 员工查询DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class EmployeeQueryExportDTO {

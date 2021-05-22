@@ -13,7 +13,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface PositionMapper extends CommonMapper<Position> {

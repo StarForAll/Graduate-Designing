@@ -23,7 +23,10 @@ import cn.edu.ncu.common.core.pojo.dto.ResponseDTO;
 import cn.edu.ncu.pojo.dto.*;
 import cn.edu.ncu.pojo.vo.PositionResultVO;
 /**
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Service
 public class PositionServiceImpl implements PositionService {

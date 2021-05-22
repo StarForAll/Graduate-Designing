@@ -24,10 +24,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 角色管理业务
- *
- * @author zzr
- * @date 2019/4/3
+ * @Author: XiongZhiCong
+ * @Description: 角色管理业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Service
 public class RoleEmployeeServiceImpl implements RoleEmployeeService {
@@ -63,10 +63,15 @@ public class RoleEmployeeServiceImpl implements RoleEmployeeService {
         pageResultDTO.setPageSize(Long.valueOf(queryDTO.getPageSize()));
 
         List<EmployeeDTO> employeeDTOS = roleEmployeeMapper.selectEmployeeByNamePage( queryDTO);
-        employeeDTOS.stream().filter(e -> e.getDepartmentId() != null).forEach(employeeDTO -> {
-            Department departmentEntity = departmentMapper.selectByPrimaryKey(employeeDTO.getDepartmentId());
-            employeeDTO.setDepartmentName(departmentEntity.getName());
-        });
+        for(int i=0;i<employeeDTOS.size();++i){
+            EmployeeDTO employeeDTO = employeeDTOS.get(i);
+            if(employeeDTO.getDepartmentId()!=null){
+                Department departmentEntity = departmentMapper.selectByPrimaryKey(employeeDTO.getDepartmentId());
+                if(departmentEntity!=null){
+                    employeeDTO.setDepartmentName(departmentEntity.getName());
+                }
+            }
+        }
         pageResultDTO.setList(BeanUtil.copyList(employeeDTOS,EmployeeVO.class));
         return ResponseDTO.succData(pageResultDTO);
     }

@@ -6,10 +6,10 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 /**
- * 登录
- *
- * @author lidoudou
- * @date 2017年12月19日上午11:49:46
+ * @Author: XiongZhiCong
+ * @Description: 员工登录DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class EmployeeLoginFormDTO {

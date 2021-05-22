@@ -1,12 +1,11 @@
 package cn.edu.ncu.common.util.basic;
 
-import java.util.regex.Pattern;
 
 /**
- * 验证工具类
- *
- * @author listen
- * @date 2017/11/06 10:54
+ * @Author: XiongZhiCong
+ * @Description: 验证工具类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class VerificationUtil {
 

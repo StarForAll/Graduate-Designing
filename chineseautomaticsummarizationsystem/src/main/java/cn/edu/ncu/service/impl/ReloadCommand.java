@@ -15,10 +15,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *  Reload 业务
- *
- * @author listen
- * @date 2018/02/10 09:18
+ * @Author: XiongZhiCong
+ * @Description: Reload 业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Component
 public class ReloadCommand extends AbstractReloadCommand4Spring {

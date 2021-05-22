@@ -11,11 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 心跳日志数据库操作
- *
- * @author : simajinqiang
- * Date: 2018/7/9
- * Time: 17:37
+ * @Author: XiongZhiCong
+ * @Description: 心跳日志Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface HeartBeatRecordMapper extends CommonMapper<HeartBeatRecord> {

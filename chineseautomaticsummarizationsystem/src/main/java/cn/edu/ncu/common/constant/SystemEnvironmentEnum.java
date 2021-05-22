@@ -2,12 +2,11 @@ package cn.edu.ncu.common.constant;
 
 
 import cn.edu.ncu.common.core.pojo.BaseEnum;
-
 /**
- * 系统环境枚举类
- *
- * @author listen
- * @date 2019年4月11日 17:34:59
+ * @Author: XiongZhiCong
+ * @Description: 系统环境枚举类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public enum SystemEnvironmentEnum implements BaseEnum {
 

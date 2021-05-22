@@ -6,7 +6,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位结果VO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class PositionResultVO {

@@ -4,14 +4,10 @@ import cn.edu.ncu.common.constant.MessageTypeEnum;
 import lombok.Data;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/7/13 0013 下午 14:37
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 通知DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class MessageCommonDTO {

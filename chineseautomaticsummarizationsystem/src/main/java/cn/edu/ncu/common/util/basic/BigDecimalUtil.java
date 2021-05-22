@@ -5,10 +5,10 @@ import java.math.RoundingMode;
 import java.text.NumberFormat;
 
 /**
- * 全局 BigDecimal 工具类
- *
- * @author listen
- * @date 2018/01/17 13:54
+ * @Author: XiongZhiCong
+ * @Description:  全局 BigDecimal 工具类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class BigDecimalUtil {
 

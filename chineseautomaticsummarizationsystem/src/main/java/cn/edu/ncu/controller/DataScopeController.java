@@ -12,14 +12,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/4/27 0027 下午 15:12
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 数据范围
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class DataScopeController implements DataScopeApi {

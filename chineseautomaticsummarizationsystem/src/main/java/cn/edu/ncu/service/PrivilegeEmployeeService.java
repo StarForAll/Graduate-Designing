@@ -6,14 +6,10 @@ import cn.edu.ncu.pojo.bo.RequestTokenBO;
 import java.util.*;
 
 /**
- * [ 后台员工权限缓存方法 ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/3/28 0028 下午 14:07
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 权限员工
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface PrivilegeEmployeeService {
 

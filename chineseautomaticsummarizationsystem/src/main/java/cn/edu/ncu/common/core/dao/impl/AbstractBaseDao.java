@@ -7,13 +7,10 @@ import cn.edu.ncu.common.core.dao.IBaseDao;
 import java.util.List;
 
 /**
- * @class AbstractBaseDao
- * @classdesc
- * @author liang_xiaojian
- * @date 2020/8/26  15:42
- * @version 1.0.0
- * @see
- * @since
+ * @Author: XiongZhiCong
+ * @Description:
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public abstract class AbstractBaseDao<T, M extends CommonMapper<T>, Q> implements IBaseDao<T, Q> {
 

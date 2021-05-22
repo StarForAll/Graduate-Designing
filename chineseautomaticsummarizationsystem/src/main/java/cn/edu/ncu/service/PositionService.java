@@ -6,9 +6,11 @@ import cn.edu.ncu.pojo.dto.*;
 import cn.edu.ncu.pojo.vo.PositionResultVO;
 
 import java.util.List;
-
 /**
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface PositionService {
 

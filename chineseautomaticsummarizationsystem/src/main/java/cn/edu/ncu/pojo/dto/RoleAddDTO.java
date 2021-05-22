@@ -6,10 +6,10 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 
 /**
- * 角色添加DTO
- *
- * @author listen
- * @date 2017/12/28 09:40
+ * @Author: XiongZhiCong
+ * @Description: 角色添加DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class RoleAddDTO {

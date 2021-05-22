@@ -13,10 +13,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * 部门管理路由器
- *
- * @author listen
- * @date 2017/12/19 14:29
+ * @Author: XiongZhiCong
+ * @Description: 部门
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class DepartmentController implements DepartmentApi {

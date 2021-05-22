@@ -5,14 +5,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * [ 用户登录日志 ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date 2019-05-15 10:25:21
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: [ 用户登录日志DTO ]
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class UserLoginLogQueryDTO extends PageParamDTO {

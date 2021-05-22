@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * 检测是否 Reload 的类
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: 检测是否 Reload 的类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public abstract class AbstractReloadCommand implements ReloadCommandInterface {
 

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 /**
  * @Author: XiongZhiCong
- * @Description: 查询条件
+ * @Description: 摘要查询条件
  * @Date: Created in 8:40 2021/4/21
  * @Modified By:
  */

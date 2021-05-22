@@ -4,14 +4,10 @@ package cn.edu.ncu.common.constant;
 import cn.edu.ncu.common.core.pojo.BaseEnum;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/3/27 0027 下午 16:22
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 员工状态枚举类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 
 public enum EmployeeStatusEnum implements BaseEnum {

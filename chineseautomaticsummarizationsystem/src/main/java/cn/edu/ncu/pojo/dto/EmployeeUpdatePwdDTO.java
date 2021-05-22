@@ -6,10 +6,10 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 /**
- * 修改密码所需参数
- *
- * @author cyj
- * @date 2018-02-23 下午 4:53
+ * @Author: XiongZhiCong
+ * @Description: 修改密码所需参数DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class EmployeeUpdatePwdDTO {

@@ -4,9 +4,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 岗位关系
- *
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位关系DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class PositionRelationQueryDTO {

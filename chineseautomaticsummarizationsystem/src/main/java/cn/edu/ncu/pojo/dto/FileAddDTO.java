@@ -8,11 +8,11 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 
 /**
-* @Description:    文件保存DTO
-* @Author:         sbq
-* @CreateDate:     2019/9/11 15:05
-* @Version:        1.0
-*/
+ * @Author: XiongZhiCong
+ * @Description: 文件保存DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
+ */
 @Data
 public class FileAddDTO {
 

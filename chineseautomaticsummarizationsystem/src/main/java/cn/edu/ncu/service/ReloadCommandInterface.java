@@ -5,11 +5,11 @@ import cn.edu.ncu.dao.entity.ReloadItem;
 import cn.edu.ncu.dao.entity.ReloadResult;
 
 import java.util.List;
-
 /**
- * 检测是否 Reload 的类
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: 检测是否 Reload 的类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface ReloadCommandInterface {
 

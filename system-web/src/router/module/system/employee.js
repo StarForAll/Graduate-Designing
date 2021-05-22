@@ -6,7 +6,7 @@ export const employee = [
     component: Main,
     name: 'Employee',
     meta: {
-      title: '人员管理',
+      title: '权限管理',
       icon: 'icon iconfont iconrenyuanguanli'
     },
     children: [

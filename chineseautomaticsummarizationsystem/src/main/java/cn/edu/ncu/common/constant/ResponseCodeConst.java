@@ -23,7 +23,6 @@ public class ResponseCodeConst {
         ResponseCodeContainer.register(SystemConfigResponseCodeConst.class, 5001, 5999);
         ResponseCodeContainer.register(RoleResponseCodeConst.class, 6001, 6999);
         ResponseCodeContainer.register(PrivilegeResponseCodeConst.class, 7001, 7999);
-        ResponseCodeContainer.register(OrderOperateLogOperateTypeConst.class, 8001, 8999);
         ResponseCodeContainer.register(TextSummarizationResponseCodeConst.class, 9001, 9999);
         ResponseCodeContainer.register(PositionResponseCodeConst.class, 13000, 13999);
 

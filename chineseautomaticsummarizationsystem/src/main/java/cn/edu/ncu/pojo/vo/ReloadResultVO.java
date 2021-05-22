@@ -4,10 +4,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * reload_result DTO 类
- *
- * @author listen
- * @date 2018/02/10 09:29
+ * @Author: XiongZhiCong
+ * @Description: reload结果VO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class ReloadResultVO {

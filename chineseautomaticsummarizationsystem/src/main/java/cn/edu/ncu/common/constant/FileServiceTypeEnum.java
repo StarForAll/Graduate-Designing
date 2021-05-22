@@ -4,10 +4,10 @@ package cn.edu.ncu.common.constant;
 import cn.edu.ncu.common.core.pojo.BaseEnum;
 
 /**
- * 文件服务枚举类
- *
- * @author listen
- * @date 2019年8月27日 14:27:16
+ * @Author: XiongZhiCong
+ * @Description: 文件服务枚举类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public enum FileServiceTypeEnum implements BaseEnum {
 

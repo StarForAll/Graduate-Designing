@@ -43,7 +43,7 @@
   </ul>
   <h3 style="text-align:center;">自动摘要算法实现流程图</h3>
   <img alt="还未上传图片" src="@/assets/images/algorithm.png" width="50%" style="margin-left:30%" /><br/>
-  <el-link type="primary" href="" >本项目Github地址</el-link>
+  <el-link type="primary" href="https://github.com/StarForAll/Graduate-Designing" >本项目Github地址</el-link>
   </div>
 </template>
 

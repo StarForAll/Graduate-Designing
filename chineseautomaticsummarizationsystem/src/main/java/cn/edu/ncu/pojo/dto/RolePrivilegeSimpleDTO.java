@@ -6,10 +6,10 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * 角色功能权限
- *
- * @author listen
- * @date 2018/01/03 08:48
+ * @Author: XiongZhiCong
+ * @Description: 角色功能权限DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class RolePrivilegeSimpleDTO {

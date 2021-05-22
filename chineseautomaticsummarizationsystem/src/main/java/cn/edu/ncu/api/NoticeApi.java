@@ -15,16 +15,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date 2019-07-11 16:19:48
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 通知管理API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
-
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_NOTICE})
 public interface NoticeApi {
     @ApiOperation(value = "分页查询全部消息", notes = "@author yandanyang")

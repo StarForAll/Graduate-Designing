@@ -5,14 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/7/10 0010 下午 18:50
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 通知DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Builder

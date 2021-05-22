@@ -4,14 +4,10 @@ package cn.edu.ncu.common.constant;
 import cn.edu.ncu.common.util.basic.VerificationUtil;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/9/4 0004 上午 11:43
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 系统设置数据类型常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public enum SystemConfigDataType {
     /**

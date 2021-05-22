@@ -11,9 +11,9 @@
       </FormItem>
     </Form>
     <Alert>
-      <h3>Smart-Heart-Beat 心跳服务介绍：</h3>
+      <h3>Heart-Beat 心跳服务介绍：</h3>
       <pre>
-简介：Smart-Heart-Beat 是心跳服务，用于监测Java应用的状态等其他信息。
+简介：Heart-Beat 是心跳服务，用于监测Java应用的状态等其他信息。
 
 原理：
 - Java后端会在项目启动的时候开启一个线程，每隔一段时间将该应用的IP、进程号更新到数据库t_heart_beat_record表中。

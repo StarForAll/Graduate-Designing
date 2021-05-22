@@ -7,13 +7,10 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @class BaseQuery
- * @classdesc
- * @author liang_xiaojian
- * @date 2020/8/11  16:00
- * @version 1.0.0
- * @see
- * @since
+ * @Author: XiongZhiCong
+ * @Description: BaseQuery
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @AllArgsConstructor

@@ -6,9 +6,10 @@ import lombok.Data;
 import javax.persistence.Table;
 
 /**
- * 岗位
- *
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name="position")

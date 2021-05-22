@@ -10,14 +10,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/3/27 0027 下午 13:00
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 角色用户Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface RoleEmployeeMapper extends CommonMapper<RoleEmployee> {

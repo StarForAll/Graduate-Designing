@@ -4,11 +4,10 @@ package cn.edu.ncu.common.constant;
 import cn.edu.ncu.common.core.pojo.BaseEnum;
 
 /**
- * []
- *
- * @author yandanyang
- * @version 1.0
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 文件业务类型枚举类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public enum FileModuleTypeEnum implements BaseEnum {
 

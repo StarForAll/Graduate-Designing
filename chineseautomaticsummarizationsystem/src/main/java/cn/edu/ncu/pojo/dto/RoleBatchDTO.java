@@ -8,10 +8,10 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * 批量添加角色员工DTO
- *
- * @author listen
- * @date 2017/12/29 15:38
+ * @Author: XiongZhiCong
+ * @Description: 批量添加角色员工DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class RoleBatchDTO {

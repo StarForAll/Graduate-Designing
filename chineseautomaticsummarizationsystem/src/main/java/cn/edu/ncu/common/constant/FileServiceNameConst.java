@@ -1,9 +1,9 @@
 package cn.edu.ncu.common.constant;
 /**
- * 文件服务名称常量
- *
- * @author listen
- * @date 2019/08/27 15:24
+ * @Author: XiongZhiCong
+ * @Description: 文件服务名称常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class FileServiceNameConst {
 

@@ -29,16 +29,11 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.util.Objects;
-
 /**
- * [  操作日志记录处理,对所有OperateLog注解的Controller进行操作日志监控 ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: [  操作日志记录处理,对所有OperateLog注解的Controller进行操作日志监控 ]
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Slf4j
 @Aspect

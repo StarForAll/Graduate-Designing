@@ -30,12 +30,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-
 /**
- * 系统配置业务类
- *
- * @author GHQ
- * @date 2017-12-23 15:09
+ * @Author: XiongZhiCong
+ * @Description: 系统配置业务类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Slf4j
 @Service

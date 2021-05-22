@@ -1,7 +1,10 @@
 package cn.edu.ncu.common.constant;
 
 /**
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位响应常量
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class PositionResponseCodeConst extends ResponseCodeConst {
 

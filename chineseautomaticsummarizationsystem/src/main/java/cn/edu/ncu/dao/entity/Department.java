@@ -7,11 +7,10 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * 部门实体类
- * t_department 数据表
- *
- * @author listen
- * @date 2017/12/19 10:45
+ * @Author: XiongZhiCong
+ * @Description: 部门实体类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name="department")

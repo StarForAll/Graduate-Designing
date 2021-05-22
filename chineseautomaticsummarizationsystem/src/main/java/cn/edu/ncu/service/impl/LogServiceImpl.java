@@ -2,10 +2,8 @@ package cn.edu.ncu.service.impl;
 
 import cn.edu.ncu.common.util.basic.ThreadFactory;
 import cn.edu.ncu.common.util.dao.IdGeneratorUtil;
-import cn.edu.ncu.dao.entity.OrderOperateLog;
 import cn.edu.ncu.dao.entity.UserLoginLog;
 import cn.edu.ncu.dao.entity.UserOperateLog;
-import cn.edu.ncu.dao.mapper.OrderOperateLogMapper;
 import cn.edu.ncu.dao.mapper.UserLoginLogMapper;
 import cn.edu.ncu.dao.mapper.UserOperateLogMapper;
 import cn.edu.ncu.service.LogService;
@@ -22,14 +20,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/4/4 0004 下午 16:19
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 日志业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Slf4j
 @Service
@@ -41,8 +35,6 @@ public class LogServiceImpl implements LogService {
     @Resource
     private UserLoginLogMapper userLoginLogMapper;
 
-    @Resource
-    private OrderOperateLogMapper orderOperateLogMapper;
 
     @Resource
     private UserOperateLogMapper userOperateLogMapper;
@@ -78,19 +70,6 @@ public class LogServiceImpl implements LogService {
                     userLoginLog.setCreateTime(date);
                 }
                 threadPoolExecutor.execute(() -> userLoginLogMapper.insert(userLoginLog));
-            }
-            if (object instanceof OrderOperateLog) {
-                OrderOperateLog orderOperateLog=(OrderOperateLog) object;
-                if(orderOperateLog.getId()==null){
-                    orderOperateLog.setId(idGeneratorUtil.snowflakeId());
-                }
-                if(orderOperateLog.getUpdateTime()==null){
-                    orderOperateLog.setUpdateTime(date);
-                }
-                if(orderOperateLog.getCreateTime()==null){
-                    orderOperateLog.setCreateTime(date);
-                }
-                threadPoolExecutor.execute(() -> orderOperateLogMapper.insert(orderOperateLog));
             }
             if (object instanceof UserOperateLog) {
                 UserOperateLog userOperateLog=(UserOperateLog) object;

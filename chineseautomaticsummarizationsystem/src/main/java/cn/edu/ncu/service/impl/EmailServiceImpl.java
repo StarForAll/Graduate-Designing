@@ -25,14 +25,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date 2019-05-13 17:10:16
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 邮件业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Service
 public class EmailServiceImpl implements EmailService {

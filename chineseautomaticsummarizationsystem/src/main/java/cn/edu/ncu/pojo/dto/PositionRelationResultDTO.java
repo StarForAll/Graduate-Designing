@@ -5,9 +5,10 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 岗位关联关系
- *
- * @author zzr
+ * @Author: XiongZhiCong
+ * @Description: 岗位关联关系DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class PositionRelationResultDTO {

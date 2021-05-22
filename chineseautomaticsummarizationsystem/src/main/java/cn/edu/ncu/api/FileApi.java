@@ -20,10 +20,10 @@ import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @Description: 文件服务
- * @Author: sbq
- * @CreateDate: 2019/7/18 9:36
- * @Version: 1.0
+ * @Author: XiongZhiCong
+ * @Description: 文件服务API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_FILE})
 public interface FileApi {

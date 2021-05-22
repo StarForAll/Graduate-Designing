@@ -9,14 +9,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019-05-15 11:32:14
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 用户操作日志Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface UserOperateLogMapper extends CommonMapper<UserOperateLog> {

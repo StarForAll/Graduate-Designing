@@ -8,10 +8,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 自定义的属性校验注解
- *
- * @author listen
- * @date 2018年3月20日 13:53:33
+ * @Author: XiongZhiCong
+ * @Description: 自定义的属性校验注解
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

@@ -6,15 +6,10 @@ import org.apache.commons.collections4.CollectionUtils;
 import java.util.Set;
 
 /**
- *
- * [ 通用常量 ]
- *
- * @version 1.0
- * @since JDK1.8
- * @author yandanyang
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
+ * @Author: XiongZhiCong
+ * @Description: [ 通用常量 ]
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class CommonConst {
 

@@ -8,14 +8,10 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/4/27 0027 下午 16:47
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 数据范围角色DTO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class DataScopeBatchSetRoleDTO {

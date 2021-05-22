@@ -8,10 +8,10 @@ import cn.edu.ncu.dao.entity.ReloadResult;
 import java.lang.reflect.Method;
 
 /**
- * Reload 处理程序的实现类
- * 用于包装以注解 Reload 实现的处理类
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: Reload 处理程序的实现类 用于包装以注解 Reload 实现的处理类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class AnnotationReloadObject extends AbstractReloadObject {
 

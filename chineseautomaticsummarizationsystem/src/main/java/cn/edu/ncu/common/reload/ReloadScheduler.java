@@ -12,7 +12,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Reload 调度器
  *
- * @author zhuoda
  */
 public class ReloadScheduler {
 

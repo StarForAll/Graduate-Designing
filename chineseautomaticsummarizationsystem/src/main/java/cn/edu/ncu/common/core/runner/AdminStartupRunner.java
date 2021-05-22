@@ -5,13 +5,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
- * 应用启动以后检测code码
- *
- * @author zhuo
- * @version 1.0
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 应用启动以后检测code码
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
-
 @Component
 public class AdminStartupRunner implements CommandLineRunner {
 

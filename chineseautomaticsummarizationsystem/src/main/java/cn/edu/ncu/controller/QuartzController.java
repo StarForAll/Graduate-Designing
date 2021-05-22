@@ -16,15 +16,10 @@ import cn.edu.ncu.pojo.dto.QuartzTaskDTO;
 import cn.edu.ncu.pojo.vo.QuartzTaskLogVO;
 import cn.edu.ncu.pojo.vo.QuartzTaskVO;
 /**
- * 
- * [  ]
- * 
- * @version 1.0
- * @since JDK1.8
- * @author yandanyang
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date  
+ * @Author: XiongZhiCong
+ * @Description: 定时任务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class QuartzController implements QuartzApi {

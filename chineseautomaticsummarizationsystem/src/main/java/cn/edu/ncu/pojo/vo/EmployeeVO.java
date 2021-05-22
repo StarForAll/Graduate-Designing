@@ -9,11 +9,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author bhr
- * @Description: 员工信息
- * @date 2019/8/28 9:04
+ * @Author: XiongZhiCong
+ * @Description: 员工信息VO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
-
 @Data
 public class EmployeeVO {
 

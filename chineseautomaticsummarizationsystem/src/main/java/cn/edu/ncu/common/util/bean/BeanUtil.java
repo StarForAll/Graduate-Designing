@@ -1,11 +1,5 @@
 package cn.edu.ncu.common.util.bean;
 
-/**
- * @Author: XiongZhiCong
- * @Description:
- * @Date: Created in 15:13 2021/4/8
- * @Modified By:
- */
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;

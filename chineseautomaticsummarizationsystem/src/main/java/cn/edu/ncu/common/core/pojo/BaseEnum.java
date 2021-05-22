@@ -10,10 +10,6 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 
 /**
- * @author listen
- * @date 2018-07-17 下午 3:52
- */
-/**
  * @Author: XiongZhiCong
  * @Description: 获取枚举
  * @Date: Created in 14:16 2021/4/8

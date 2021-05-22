@@ -7,10 +7,10 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
- * 员工实体类
- *
- * @author lidoudou
- * @date 2017年12月19日下午1:34:48
+ * @Author: XiongZhiCong
+ * @Description: 员工实体类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name="employee")

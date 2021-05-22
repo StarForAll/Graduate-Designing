@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
- * 系统参数配置 t_system_config Dao层
- *
- * @author GHQ
- * @date 2017-12-23 14:25
+ * @Author: XiongZhiCong
+ * @Description: 系统参数配置Mapper
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Mapper
 public interface SystemConfigMapper extends CommonMapper<SystemConfig> {

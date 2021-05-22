@@ -16,10 +16,10 @@ import javax.validation.Valid;
 import java.util.List;
 
 /**
- * Smart Reload 路由
- *
- * @author listen
- * @date 2018/02/10 09:18
+ * @Author: XiongZhiCong
+ * @Description: Reload重启API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_RELOAD})
 @OperateLog

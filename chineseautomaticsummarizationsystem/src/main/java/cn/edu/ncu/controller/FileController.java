@@ -21,10 +21,10 @@ import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 
 /**
+ * @Author: XiongZhiCong
  * @Description: 文件服务
- * @Author: sbq
- * @CreateDate: 2019/7/18 9:36
- * @Version: 1.0
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @RestController
 public class FileController implements FileApi {

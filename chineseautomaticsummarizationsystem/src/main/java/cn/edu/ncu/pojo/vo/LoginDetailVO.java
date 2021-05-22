@@ -9,10 +9,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 登录返回DTO
- *
- * @author lidoudou
- * @date 2017年12月21日上午09:06:31
+ * @Author: XiongZhiCong
+ * @Description: 登录返回VO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class LoginDetailVO {

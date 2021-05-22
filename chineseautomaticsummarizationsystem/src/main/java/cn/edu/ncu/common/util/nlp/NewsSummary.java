@@ -1,5 +1,4 @@
 package cn.edu.ncu.common.util.nlp;
-//import com.hankcs.hanlp.HanLP;
 
 import cn.edu.ncu.common.util.basic.FileUtil;
 
@@ -23,13 +22,13 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 /**
- * @Author:sks
+ * @Author: XiongZhiCong
  * @Description: 文本摘要提取文中重要的关键句子，使用top-n关键词在句子中的比例关系
- * 返回过滤句子方法为:1.均值标准差，2.top-n句子，3.最大边缘相关top-n句子
- * 參考文章:https://www.cnblogs.com/shaosks/p/8116441.html
- * @Date:Created in 16:40 2017/12/22
- * @Modified by:
- **/
+ *  * 返回过滤句子方法为:1.均值标准差，2.top-n句子，3.最大边缘相关top-n句子
+ *  * 參考文章:https://www.cnblogs.com/shaosks/p/8116441.html
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
+ */
 public class NewsSummary {
     //保留关键词数量
     int N = 50;

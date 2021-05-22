@@ -9,13 +9,12 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.*;
-
 /**
-* @Description:    ip工具类
-* @Author:         sbq
-* @CreateDate:     2019/8/8 10:33
-* @Version:        1.0
-*/
+ * @Author: XiongZhiCong
+ * @Description:  ip工具类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
+ */
 public class IpUtil {
     public static final String IP_URL = "http://ip.taobao.com/service/getIpInfo.php";
     public static final String UNKNOWN = "unknown";

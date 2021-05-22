@@ -7,7 +7,12 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+ * @Author: XiongZhiCong
+ * @Description: 部门VO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
+ */
 @Data
 public class DepartmentVO {
 

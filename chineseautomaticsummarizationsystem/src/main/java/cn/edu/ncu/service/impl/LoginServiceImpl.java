@@ -43,14 +43,10 @@ import cn.edu.ncu.pojo.dto.LoginPrivilegeDTO;
 import cn.edu.ncu.pojo.vo.KaptchaVO;
 import cn.edu.ncu.pojo.vo.LoginDetailVO;
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/3/27 0027 下午 18:10
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 登录业务
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Slf4j
 @Service
@@ -90,10 +86,7 @@ public class LoginServiceImpl implements LoginService {
         String redisVerificationCode = (String) redisService.get(loginForm.getCodeUuid());
         //增加删除已使用的验证码方式 频繁登录
         redisService.del(loginForm.getCodeUuid());
-        if (StringUtils.isEmpty(redisVerificationCode)) {
-            return ResponseDTO.wrap(EmployeeResponseCodeConst.VERIFICATION_CODE_INVALID);
-        }
-        if (!redisVerificationCode.equalsIgnoreCase(loginForm.getCode())) {
+        if (StringUtils.isEmpty(redisVerificationCode)||!redisVerificationCode.equalsIgnoreCase(loginForm.getCode())) {
             return ResponseDTO.wrap(EmployeeResponseCodeConst.VERIFICATION_CODE_INVALID);
         }
         String loginPwd = DESUtil.encrypt(CommonConst.Password.SALT_FORMAT, loginForm.getLoginPwd());
@@ -135,7 +128,7 @@ public class LoginServiceImpl implements LoginService {
     }
 
     /**
-     * 手机端退出登陆，清除token缓存
+     * 退出登陆，清除token缓存
      *
      * @param requestToken
      * @return 退出登陆是否成功，bool

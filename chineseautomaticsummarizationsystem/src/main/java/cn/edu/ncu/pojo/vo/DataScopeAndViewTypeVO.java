@@ -1,20 +1,15 @@
 package cn.edu.ncu.pojo.vo;
 
-import cn.edu.ncu.pojo.vo.DataScopeViewTypeVO;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.List;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2018 1024lab.netInc. All rights reserved.
- * @date 2019/4/27 0027 下午 16:37
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 数据范围VO
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 public class DataScopeAndViewTypeVO {

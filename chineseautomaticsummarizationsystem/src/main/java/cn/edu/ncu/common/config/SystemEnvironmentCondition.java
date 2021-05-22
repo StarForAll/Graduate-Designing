@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 /**
- * 是否是正式环境
- *
- * @author listen
- * @date 2019/08/27 08:56
+ * @Author: XiongZhiCong
+ * @Description: 系统环境
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class SystemEnvironmentCondition implements Condition {
 

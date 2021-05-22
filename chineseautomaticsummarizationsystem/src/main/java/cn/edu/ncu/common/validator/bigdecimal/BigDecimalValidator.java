@@ -8,10 +8,10 @@ import javax.validation.ConstraintValidatorContext;
 import java.math.BigDecimal;
 
 /**
- * BigDecimal 类校验器
- *
- * @author listen
- * @date 2018年3月20日 13:51:46
+ * @Author: XiongZhiCong
+ * @Description: BigDecimal 类校验器
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class BigDecimalValidator implements ConstraintValidator<CheckBigDecimal, BigDecimal> {
 

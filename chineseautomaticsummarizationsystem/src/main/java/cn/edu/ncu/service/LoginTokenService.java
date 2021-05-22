@@ -4,14 +4,10 @@ import cn.edu.ncu.pojo.bo.RequestTokenBO;
 import cn.edu.ncu.pojo.dto.EmployeeDTO;
 
 /**
- * [  ]
- *
- * @author yandanyang
- * @version 1.0
- * @company 1024lab.net
- * @copyright (c) 2019 1024lab.netInc. All rights reserved.
- * @date
- * @since JDK1.8
+ * @Author: XiongZhiCong
+ * @Description: 登录Token
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public interface LoginTokenService {
 

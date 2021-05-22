@@ -15,13 +15,10 @@ import java.util.Properties;
 
 import static org.mybatis.generator.internal.util.StringUtility.isTrue;
 /**
- * @class MyBatisCommentGenerator
- * @classdesc 让逆向的实体的注释使用 表的字段Comment
- * @author Administrator
- * @date 2020-11-5  10:53
- * @version 1.0.0
- * @see
- * @since
+ * @Author: XiongZhiCong
+ * @Description: 让逆向的实体的注释使用 表的字段Comment
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class MyBatisCommentGenerator extends  DefaultCommentGenerator {
 

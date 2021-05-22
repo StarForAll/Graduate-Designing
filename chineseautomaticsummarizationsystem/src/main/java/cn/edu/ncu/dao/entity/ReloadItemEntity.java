@@ -6,10 +6,10 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * t_reload_item 数据表 实体类
- *
- * @author listen
- * @date 2018/02/10 09:29
+ * @Author: XiongZhiCong
+ * @Description: t_reload_item 数据表 实体类
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 @Data
 @Table(name="reload_item")

@@ -19,11 +19,10 @@ import java.util.concurrent.TimeUnit;
 import static java.util.Objects.requireNonNull;
 
 /**
- * ReloadManager 管理器
- * <p>
- * 可以在此类中添加 检测任务 以及注册 处理程序
- *
- * @author zhuoda
+ * @Author: XiongZhiCong
+ * @Description: ReloadManager 管理器；可以在此类中添加 检测任务 以及注册 处理程序
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class ReloadManager {
 

@@ -3,9 +3,10 @@ package cn.edu.ncu.common.util.basic;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 拥有自己的thread facotry是为了jstack时候能看到是哪个线程
- *
- * @author jiaozi
+ * @Author: XiongZhiCong
+ * @Description: 拥有自己的thread facotry是为了jstack时候能看到是哪个线程
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
  */
 public class ThreadFactory implements java.util.concurrent.ThreadFactory {
 

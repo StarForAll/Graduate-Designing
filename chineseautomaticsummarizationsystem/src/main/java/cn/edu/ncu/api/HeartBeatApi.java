@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 
-
+/**
+ * @Author: XiongZhiCong
+ * @Description: 心跳服务API
+ * @Date: Created in 10:31 2021/4/21
+ * @Modified By:
+ */
 @Api(tags = {SwaggerTagConst.Admin.MANAGER_HEART_BEAT})
 @OperateLog
 public interface HeartBeatApi {
